@@ -5,7 +5,6 @@ import { useState } from "react";
 
 export default function Header() {
   const [isOpen, setOpen] = useState(false);
-  const toggleMenu = () => setOpen(!isOpen);
 
   const links = [
     {
@@ -36,33 +35,33 @@ export default function Header() {
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            {links.map((item, index) => (
-              <Link key={index} href={item.url}>
+            {links.map((link, index) => (
+              <Link key={index} href={link.url}>
                 <a className="text-lg text-zinc-500 hover:text-zinc-700 font-semibold transition duration-300">
-                  {item.title}
+                  {link.title}
                 </a>
               </Link>
             ))}
           </div>
           <div className="flex items-center justify-center md:hidden">
-            <Hamburger toggled={isOpen} toggle={toggleMenu} />
+            <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
         </nav>
 
         {/* Mobile Nav */}
         {isOpen && (
           <nav className="absolute flex flex-col bg-slate-100 w-full h-screen z-50">
-            {links.map((item, index) => (
+            {links.map((link, index) => (
               <div
                 key={index}
                 className="py-8 border-b border-slate-400 w-3/4 mx-auto flex justify-center"
               >
-                <Link href={item.url}>
+                <Link href={link.url}>
                   <a
-                    onClick={toggleMenu}
+                    onClick={() => setOpen(!isOpen)}
                     className="text-lg text-zinc-500 hover:text-zinc-700 font-semibold transition duration-300"
                   >
-                    {item.title}
+                    {link.title}
                   </a>
                 </Link>
               </div>
