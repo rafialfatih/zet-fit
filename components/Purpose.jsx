@@ -1,22 +1,12 @@
 import Image from "next/image";
 
 export default function Purpose() {
-  const purpose = [
-    {
-      title: "Free to use",
-    },
-    {
-      title: "Easy to understand",
-    },
-    {
-      title: "Fast and save memory",
-    },
-    {
-      title: "Supports various devices",
-    },
-    {
-      title: "Care about your health",
-    },
+  const purposes = [
+    "Free to use",
+    "Easy to understand",
+    "Fast and save memory",
+    "Supports various devices",
+    "Care about your health",
   ];
 
   return (
@@ -27,6 +17,8 @@ export default function Purpose() {
       <div className="block md:flex my-4 md:space-x-4">
         <div className="w-full h-48 md:w-96 sm:h-64 relative">
           <Image
+            placeholder="blur"
+            blurDataURL="/img/hero-blur.jpg"
             src="/img/hero.jpg"
             alt="Hero"
             layout="fill"
@@ -44,18 +36,19 @@ export default function Purpose() {
           The advantages of this website
         </h1>
         <ul className="mt-10 md:mt-6 space-y-3 text-xl">
-          {purpose.map((item, index) => (
+          {purposes.map((purpose, index) => (
             <li
               key={index}
               className="border-b border-slate-400 pb-4 flex items-center space-x-2 last:border-none"
             >
               <Image
+                optimized="1"
                 src="/img/check-mark.png"
                 alt="Check"
                 width={24}
                 height={24}
               />
-              <p>{item.title}</p>
+              <p>{purpose}</p>
             </li>
           ))}
         </ul>
