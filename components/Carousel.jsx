@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Carousel() {
   return (
@@ -29,7 +30,7 @@ export default function Carousel() {
             tempore fugiat quidem tempora. Nobis.
           </p>
         </div>
-        <div className="flex-shrink-0 h-full md:w-1/2 relative bg-slate-700/40 md:hover:scale-105 hover:opacity-90 transition duration-150">
+        <div className="flex-shrink-0 h-full md:w-1/2 relative md:hover:scale-105 hover:opacity-90 transition duration-150">
           <Image
             alt="Fit"
             layout="fill"
@@ -39,9 +40,11 @@ export default function Carousel() {
         </div>
       </div>
       <div className="mt-12 flex items-center justify-center">
-        <button className="capitalize py-2 px-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-100">
-          Get my workout plan
-        </button>
+        <Link href="/workout">
+          <a className="capitalize py-2 px-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-100">
+            Get my workout plan
+          </a>
+        </Link>
       </div>
     </div>
   );
