@@ -11,8 +11,6 @@ export default function Footer() {
     setMenus(getMenu());
   }, []);
 
-  console.log(getMenu());
-
   return (
     <div className="bg-neutral-800 py-12 h-full text-white font-semibold overflow-x-hidden">
       <div className="flex flex-col justify-center items-center space-y-8 md:space-y-0 md:flex-row md:justify-between md:items-start w-5/6 mx-auto border-b border-slate-500 pb-6">
