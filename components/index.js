@@ -5,3 +5,4 @@ export { default as Carousel } from "./Carousel";
 export { default as Footer } from "./Footer";
 export { default as Purpose } from "./Purpose";
 export { default as OurTeam } from "./OurTeam";
+export { default as NavMobile } from "./NavMobile";
