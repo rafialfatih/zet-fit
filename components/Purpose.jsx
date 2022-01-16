@@ -25,7 +25,7 @@ export default function Purpose() {
         Purpose
       </h1>
       <div className="block md:flex my-4 md:space-x-4">
-        <div className="w-full h-48 md:w-96 sm:h-64 relative bg-slate-500">
+        <div className="w-full h-48 md:w-96 sm:h-64 relative">
           <Image
             src="/img/hero.jpg"
             alt="Hero"
