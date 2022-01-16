@@ -1,25 +1,18 @@
 import Head from "next/head";
 import Link from "next/link";
 import { Divide as Hamburger } from "hamburger-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { NavMobile } from ".";
+import { getMenu } from "../services";
 
 export default function Header() {
   const [isOpen, setOpen] = useState(false);
+  const [menus, setMenus] = useState([]);
 
-  const links = [
-    {
-      url: "/",
-      title: "Home",
-    },
-    {
-      url: "/workout",
-      title: "Workout Plan",
-    },
-    {
-      url: "/about",
-      title: "About",
-    },
-  ];
+  useEffect(() => {
+    setMenus(getMenu());
+  }, []);
 
   return (
     <>
@@ -35,10 +28,10 @@ export default function Header() {
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            {links.map((link, index) => (
-              <Link key={index} href={link.url}>
+            {menus.map((menu, index) => (
+              <Link key={index} href={menu.url}>
                 <a className="text-lg text-zinc-500 hover:text-zinc-700 font-semibold transition duration-300">
-                  {link.title}
+                  {menu.title}
                 </a>
               </Link>
             ))}
@@ -50,23 +43,7 @@ export default function Header() {
 
         {/* Mobile Nav */}
         {isOpen && (
-          <nav className="absolute flex flex-col bg-slate-100 w-full h-screen z-50">
-            {links.map((link, index) => (
-              <div
-                key={index}
-                className="py-8 border-b border-slate-400 w-3/4 mx-auto flex justify-center"
-              >
-                <Link href={link.url}>
-                  <a
-                    onClick={() => setOpen(!isOpen)}
-                    className="text-lg text-zinc-500 hover:text-zinc-700 font-semibold transition duration-300"
-                  >
-                    {link.title}
-                  </a>
-                </Link>
-              </div>
-            ))}
-          </nav>
+          <NavMobile setNavOpen={setOpen} isNavOpen={isOpen} menus={menus} />
         )}
       </div>
     </>
