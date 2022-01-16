@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f8f9fa;
+}
+
+.hero-background {
+  background-image: url("/img/hero.jpg");
+}
