@@ -6,3 +6,5 @@ export { default as Footer } from "./Footer";
 export { default as Purpose } from "./Purpose";
 export { default as OurTeam } from "./OurTeam";
 export { default as NavMobile } from "./NavMobile";
+export { default as WorkoutMenu } from "./WorkoutMenu";
+export { default as WorkoutResult } from "./WorkoutResult";
